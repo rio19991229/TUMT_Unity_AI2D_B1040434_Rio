@@ -1,49 +1,77 @@
 ﻿using UnityEngine;                                
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class play : MonoBehaviour
 {
-    public int speed = 50;                        
-    public float jump = 50f;                     
-    public string playName = "玩家";               
-    public bool pass = false;                     
-    public bool isGround;
-    [Range(0,200)]
+    public int speed = 15;
+    public float jump = 2.5f;
+    public bool pass = false;
+    public bool isGround = false;
     public float hp = 100;
+    public float playdam = 5;
 
     public UnityEvent onEat;
 
     private Rigidbody2D r2d;
+    private Transform tra;
+    private Animator ani;
+
+    public Image hpBar;
+    private float hpmax;
+
+    public GameObject finsh;
+    
+    public string parAtk = "攻擊";
 
     private void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
+        tra = GetComponent<Transform>();
+        ani = GetComponent<Animator>();
+
+        hpmax = hp;
     }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.D)) Turn();
+        if (Input.GetKeyDown(KeyCode.D)) Turn(0);
         if (Input.GetKeyDown(KeyCode.A)) Turn(180);
     }
+
     private void FixedUpdate()
     {
-        Walk(); 
+        Walk();
         Jump();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         isGround = true;
+        Debug.Log("碰到" + collision.gameObject);
     }
-    /// <summary>
-    /// 走路
-    /// </summary>
-    private void Walk()
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        r2d.AddForce(new Vector2(speed * Input.GetAxis("Horizontal"), 0));
+        if (collision.tag == "enemy")
+        {
+            collision.gameObject.GetComponent<enemy>().EnemyDam(playdam);
+        }
     }
-    /// <summary>
-    /// 跳躍
-    /// </summary>
-    private void Jump()
+
+    void Walk()
+    {
+        r2d.AddForce(new Vector2(speed * (Input.GetAxis("Horizontal")), 0));
+    }
+
+    private void Attack()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+            ani.SetTrigger(parAtk);
+        Debug.Log("2");
+    }
+
+    void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isGround == true)
         {
@@ -51,20 +79,22 @@ public class play : MonoBehaviour
             r2d.AddForce(new Vector2(0, jump));
         }
     }
-    /// <summary>
-    /// 轉彎
-    /// </summary>
-    /// <param name="direction">方向，左轉為 180，右轉為 0</param>
-    private void Turn(int direction = 0)
+
+    void Turn(int direction)
     {
-        transform.eulerAngles = new Vector3(0, direction, 0);
+        tra.eulerAngles = new Vector3(0, direction, 0);
     }
-/// <summary>
-/// 傷害
-/// </summary>
-/// <param name="damage"></param>
+
     public void Damage(float damage)
     {
         hp -= damage;
+        hpBar.fillAmount = hp / hpmax;
+
+        if (hp <= 0)
+        {
+            finsh.SetActive(true);
+
+            Destroy(this);
+        }
     }
 }

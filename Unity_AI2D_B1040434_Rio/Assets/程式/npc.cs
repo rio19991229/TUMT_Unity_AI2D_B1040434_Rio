@@ -15,13 +15,19 @@ public class npc : MonoBehaviour
     public string missionComplete = "恭喜你!!!已擊倒兩位敵人!!!";
     [Header("任務相關")]
     public bool complete;
-    public int countPlayer;
+    public float countPlayer;
     public int countFinish = 2;
     [Header("介面")]
     public GameObject objCanvas;
     public Text textSay;
 
     public float speed = 0.5f;
+    public static npc count;
+
+    private void Start()
+    {
+        count = this;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "player")
@@ -34,19 +40,13 @@ public class npc : MonoBehaviour
             SayClose();
     }
 
-    /// <summary>
-    /// 對話：打字效果
-    /// </summary>
     private void Say()
     {
-        // 畫布.顯示
         objCanvas.SetActive(true);
         StopAllCoroutines();
 
         if (countPlayer >= countFinish) _state = state.complete;
 
-
-        // 判斷式(狀態)
         switch (_state)
         {
             case state.start:
@@ -71,18 +71,14 @@ public class npc : MonoBehaviour
             yield return new WaitForSeconds(speed);     // 等待
         }
     }
-    /// <summary>
-    /// 關閉對話
-    /// </summary>
+
     private void SayClose()
     {
         StopAllCoroutines();
         objCanvas.SetActive(false);
     }
-    /// <summary>
-    /// 玩家取得道具
-    /// </summary>
-    public void Playerkill()
+
+    public void PlayerGet()
     {
         countPlayer++;
     }
