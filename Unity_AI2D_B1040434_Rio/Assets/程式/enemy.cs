@@ -36,7 +36,7 @@ public class enemy : MonoBehaviour
 
     private void Move()
     {
-        r2d.AddForce(-transform.right * speed); 
+        r2d.AddForce(transform.right * speed);
 
         RaycastHit2D hit = Physics2D.Raycast(checkPoint.position, -checkPoint.up, 2f, 1 << 8);
 

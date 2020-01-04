@@ -15,14 +15,13 @@ public class play : MonoBehaviour
 
     private Rigidbody2D r2d;
     private Transform tra;
-    private Animator ani;
+    public Animator ani;
 
     public Image hpBar;
     private float hpmax;
 
     public GameObject finsh;
     
-    public string parAtk = "攻擊";
 
     private void Start()
     {
@@ -37,6 +36,7 @@ public class play : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.D)) Turn(0);
         if (Input.GetKeyDown(KeyCode.A)) Turn(180);
+        Attack(); 
     }
 
     private void FixedUpdate()
@@ -67,8 +67,10 @@ public class play : MonoBehaviour
     private void Attack()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
-            ani.SetTrigger(parAtk);
-        Debug.Log("2");
+        {
+            ani.SetTrigger("攻擊");
+        }
+
     }
 
     void Jump()
