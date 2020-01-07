@@ -24,6 +24,8 @@ public class npc : MonoBehaviour
     public float speed = 0.5f;
     public static npc count;
 
+    public GameObject finsh;
+
     private void Start()
     {
         count = this;
@@ -45,7 +47,12 @@ public class npc : MonoBehaviour
         objCanvas.SetActive(true);
         StopAllCoroutines();
 
-        if (countPlayer >= countFinish) _state = state.complete;
+        if (countPlayer >= countFinish)
+        {
+            _state = state.complete;
+
+            Invoke("finish", 3f);
+        } 
 
         switch (_state)
         {
@@ -81,5 +88,12 @@ public class npc : MonoBehaviour
     public void PlayerGet()
     {
         countPlayer++;
+    }
+
+    void finish()
+    {
+        finsh.SetActive(true);
+
+        Destroy(play.fin);
     }
 }

@@ -21,7 +21,7 @@ public class play : MonoBehaviour
     private float hpmax;
 
     public GameObject finsh;
-    
+    public static play fin;
 
     private void Start()
     {
@@ -30,6 +30,7 @@ public class play : MonoBehaviour
         ani = GetComponent<Animator>();
 
         hpmax = hp;
+        fin = this;
     }
 
     private void Update()
