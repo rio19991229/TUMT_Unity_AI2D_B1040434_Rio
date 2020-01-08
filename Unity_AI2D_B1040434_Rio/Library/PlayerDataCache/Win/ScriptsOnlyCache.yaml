@@ -23,7 +23,6 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -77,17 +76,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9930}
     - Class: 114
-      Script: {instanceID: 10278}
+      Script: {instanceID: 10280}
     - Class: 114
-      Script: {instanceID: 10646}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 11068}
+      Script: {instanceID: 11070}
     - Class: 114
-      Script: {instanceID: 11120}
+      Script: {instanceID: 11122}
     - Class: 114
-      Script: {instanceID: 11226}
+      Script: {instanceID: 11228}
     - Class: 114
-      Script: {instanceID: 11492}
+      Script: {instanceID: 11494}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -131,7 +130,7 @@ ScriptsOnlyBuild:
     className: TMP_Dropdown
   - hash:
       serializedVersion: 2
-      Hash: f51d361a20778f0b58f3d29fce32d9f8
+      Hash: 4d94ba351c45d5114651539aa66d357d
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: enemy
@@ -273,6 +272,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: AnimationPlayableAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 6f77063e1db5b30bd3ab30748fa83c12
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enemyhit
   - hash:
       serializedVersion: 2
       Hash: aba7b2852ef61d175dd9602e7723d5e5
