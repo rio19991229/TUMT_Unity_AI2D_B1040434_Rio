@@ -8,6 +8,7 @@ TagManager:
   - enemy
   - atktri
   - atk
+  - candy
   layers:
   - Default
   - TransparentFX

@@ -17,6 +17,8 @@ public class npc : MonoBehaviour
     public bool complete;
     public float countPlayer;
     public int countFinish = 2;
+    public float countCandy;
+    public int candyFinish = 10;
     [Header("介面")]
     public GameObject objCanvas;
     public Text textSay;
@@ -47,7 +49,7 @@ public class npc : MonoBehaviour
         objCanvas.SetActive(true);
         StopAllCoroutines();
 
-        if (countPlayer >= countFinish)
+        if (countPlayer >= countFinish && countCandy >= candyFinish)
         {
             _state = state.complete;
 

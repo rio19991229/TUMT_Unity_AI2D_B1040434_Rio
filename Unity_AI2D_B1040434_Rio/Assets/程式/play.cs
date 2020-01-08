@@ -23,6 +23,7 @@ public class play : MonoBehaviour
     public GameObject finsh;
     public static play fin;
 
+
     private void Start()
     {
         r2d = GetComponent<Rigidbody2D>();
@@ -56,6 +57,11 @@ public class play : MonoBehaviour
         if (collision.tag == "enemy")
         {
             collision.gameObject.GetComponent<enemy>().EnemyDam(playdam);
+        }
+        if (collision.tag == "candy")
+        {
+            Destroy(collision.gameObject);
+            npc.count.countCandy += 1;
         }
     }
 
