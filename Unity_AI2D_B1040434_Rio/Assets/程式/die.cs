@@ -10,5 +10,9 @@ public class die : MonoBehaviour
         {
             collision.gameObject.GetComponent<play>().Damage(damage);
         }
+        if (collision.gameObject.tag == "enemy")
+        {
+            collision.gameObject.GetComponent<enemy>().DieFold(damage);
+        }
     }
 }

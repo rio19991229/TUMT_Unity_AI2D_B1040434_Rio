@@ -27,7 +27,6 @@ public class play : MonoBehaviour
     {
         r2d = GetComponent<Rigidbody2D>();
         tra = GetComponent<Transform>();
-        ani = GetComponent<Animator>();
 
         hpmax = hp;
         fin = this;
@@ -62,6 +61,7 @@ public class play : MonoBehaviour
 
     void Walk()
     {
+        ani.SetBool("走路", Input.GetAxis("Vertical") != 0 || Input.GetAxis("Horizontal") != 0);
         r2d.AddForce(new Vector2(speed * (Input.GetAxis("Horizontal")), 0));
     }
 

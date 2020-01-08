@@ -11,6 +11,7 @@ public class enemy : MonoBehaviour
 
     private Rigidbody2D r2d;
     public Transform checkPoint;
+    public Animator ani;
 
     private void Start()
     {
@@ -55,5 +56,15 @@ public class enemy : MonoBehaviour
             Destroy(gameObject);
             npc.count.PlayerGet();
         } 
+    }
+    public void DieFold(float damage)
+    {
+        enemyhp -= damage;
+
+        if (enemyhp <= 0)
+        {
+            Destroy(gameObject);
+            npc.count.PlayerGet();
+        }
     }
 }
