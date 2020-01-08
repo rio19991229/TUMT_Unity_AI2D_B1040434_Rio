@@ -16,6 +16,9 @@ public class play : MonoBehaviour
     private Rigidbody2D r2d;
     private Transform tra;
     public Animator ani;
+    private AudioSource aud;
+
+    public AudioClip candtsound;
 
     public Image hpBar;
     private float hpmax;
@@ -28,6 +31,7 @@ public class play : MonoBehaviour
     {
         r2d = GetComponent<Rigidbody2D>();
         tra = GetComponent<Transform>();
+        aud = GetComponent<AudioSource>();
 
         hpmax = hp;
         fin = this;
@@ -62,6 +66,7 @@ public class play : MonoBehaviour
         {
             Destroy(collision.gameObject);
             npc.count.countCandy += 1;
+            aud.PlayOneShot(candtsound, 0.5f);
         }
     }
 

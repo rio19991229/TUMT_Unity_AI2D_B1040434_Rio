@@ -28,9 +28,13 @@ public class npc : MonoBehaviour
 
     public GameObject finsh;
 
+    public AudioClip textsound;
+    private AudioSource aud;
+
     private void Start()
     {
         count = this;
+        aud = GetComponent<AudioSource>();
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -72,12 +76,13 @@ public class npc : MonoBehaviour
     }
     private IEnumerator ShowDialog(string say)
     {
-        textSay.text = "";                              // 清空文字
+        textSay.text = "";
 
-        for (int i = 0; i < say.Length; i++)            // 迴圈跑對話.長度
+        for (int i = 0; i < say.Length; i++)
         {
-            textSay.text += say[i].ToString();          // 累加每個文字
-            yield return new WaitForSeconds(speed);     // 等待
+            textSay.text += say[i].ToString();
+            aud.PlayOneShot(textsound, 0.5f);
+            yield return new WaitForSeconds(speed);
         }
     }
 
