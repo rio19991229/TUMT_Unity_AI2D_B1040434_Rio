@@ -23,6 +23,7 @@ ScriptsOnlyBuild:
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
+    - UnityEditor.TestTools.TestRunner.TestListCacheData
     UnityEngine.UI.dll:
     - UnityEngine.EventSystems.EventSystem
     - UnityEngine.EventSystems.StandaloneInputModule
@@ -49,11 +50,17 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 61
       Script: {instanceID: 0}
+    - Class: 62
+      Script: {instanceID: 0}
     - Class: 70
       Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
       Script: {instanceID: 0}
     - Class: 91
       Script: {instanceID: 0}
@@ -84,9 +91,9 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 11122}
     - Class: 114
-      Script: {instanceID: 11228}
+      Script: {instanceID: 11230}
     - Class: 114
-      Script: {instanceID: 11494}
+      Script: {instanceID: 11496}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -208,7 +215,7 @@ ScriptsOnlyBuild:
     className: die
   - hash:
       serializedVersion: 2
-      Hash: 663c316816daa216f6a512152027f7dd
+      Hash: 5925c5c2cab1d9e8b0b5dd2214cfdab3
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: play
@@ -436,7 +443,7 @@ ScriptsOnlyBuild:
     className: TextMeshProUGUI
   - hash:
       serializedVersion: 2
-      Hash: ea4b3152b73b1d62f0db17df04f5a5be
+      Hash: da9ff294eda7a5e679bbd940da4233d9
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: npc
@@ -458,6 +465,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.TestRunner.dll
     namespaceName: UnityEngine.TestTools
     className: BeforeAfterTestCommandState
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: candy
   - hash:
       serializedVersion: 2
       Hash: 70657549ae4ed56d81e02b28b67e5e12
@@ -569,4 +582,4 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - "Assets/\u904A\u6232.unity"
-  playerPath: C:/Users/User/Desktop/TUMT_Unity_AI2D_B1040434_Rio/Unity_AI2DGAME_B1040434_Rio/Unity_AI2D_B1040434_Rio.exe
+  playerPath: C:/Users/User/Desktop/TUMT_Unity_AI2D_B1040434_Rio/Web/Unity_AI2D_B1040434_Rio.exe
